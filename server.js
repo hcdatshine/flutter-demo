@@ -43,7 +43,8 @@ app.post('/upload', function(req, res) {
   let time = Date.now();
 
   // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv(`/Users/datshinemac/Desktop/node-ec2/image/${time}.jpg`, function(err) {
+  sampleFile.mv(`/home/ec2-user/flutter-demo/image/${time}.jpg`, function(err) {
+//   sampleFile.mv(`/Users/datshinemac/Desktop/node-ec2/image/${time}.jpg`, function(err) {
     if (err)
       return res.status(500).send(err);
     else {
