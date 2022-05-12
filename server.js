@@ -37,14 +37,13 @@ app.post('/upload', function(req, res) {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
-  console.log(req.files);
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   let sampleFile = req.files.file;
   let time = Date.now();
 
   // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv(`/home/ec2-user/flutter-demo/image/${time}.jpg`, function(err) {
-//   sampleFile.mv(`/Users/datshinemac/Desktop/node-ec2/image/${time}.jpg`, function(err) {
+  sampleFile.mv(`/home/ec2-user/flutter-demo/image/${sampleFile.name}`, function(err) {
+//   sampleFile.mv(`/Users/datshinemac/Desktop/node-ec2/image/${sampleFile.name}`, function(err) {
     if (err)
       return res.status(500).send(err);
     else {
